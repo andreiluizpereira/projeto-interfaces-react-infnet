@@ -8,10 +8,8 @@ import tax from '../icons/tax.png';
 import money from '../icons/money.png';
 
 type PropertyCardProps = {
-  propertyType: string;
   urlImage: string;
   aluguel: number;
-  children: React.ReactNode;
   cidadeEstado: string;
   bairro: string;
   m2: number;
@@ -30,8 +28,8 @@ export const PropertyCard = (props : PropertyCardProps) => {
         <h2>Bairro {props.bairro}</h2>
         <p>{props.cidadeEstado}</p>
         <img src={props.urlImage} alt="" />
-        <span className='aluguel'>R$ {props.aluguel}</span>
         <PropertyCard.Info> 
+          <span className='aluguel'>R$ {props.aluguel}</span>
           <img src={bed} alt="" />
           <p><span>Dormitórios:</span> {props.dormitorio}</p>
           <img src={toilet} alt="" />
@@ -45,51 +43,22 @@ export const PropertyCard = (props : PropertyCardProps) => {
           <img src={tax} alt="" />
           <p><span>IPTU:</span> R$ {props.IPTU}</p>
         </PropertyCard.Info>
+        <PropertyCard.Button>
+          Detalhes
+        </PropertyCard.Button>
       </PropertyCard.Conteiner>
     </>
   );
 } 
-/*
-export const PropertyInfoCard = (props : PropertyInfoCardProps) => {
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="Imóvel"
-        height="140"
-        image={props.urlImage}
-        title="Imóvel"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Bairro {props.bairro}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        <p>{props.propertyType}</p>
-          <PropertyInfoCard.Grid> 
-            <p><span>Local:</span> {props.cidadeEstado}</p>
-            <p><span>m²:</span> {props.m2}</p>
-            <p><span>Dormitórios:</span> {props.dormitorio}</p>
-            <p><span>Vagas garagem:</span> {props.vagasGaragem}</p>
-            <p><span>Condomínio:</span> R$ {props.condominio}</p>
-            <p><span>IPTU:</span> R$ {props.IPTU}</p>
-          </PropertyInfoCard.Grid>
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Detalhes</Button>
-      </CardActions>
-    </Card>
-  );
-}*/
+
 PropertyCard.Conteiner = styled.div`
+  text-align: center;
   margin-top: 500px;
   max-width: 350px;
   border-radius: 7px;
   background-color: #f7f7f7;
   border: 2px solid #dfdfdf;
   margin: auto;
-  position: relative;
   h2, >p {
     background-image: radial-gradient(circle at 15.59% 50%, #0092fd 0, #008ffe 12.5%, #008bfe 25%, #0087fc 37.5%, #4682f9 50%, #677df5 62.5%, #7f78ef 75%, #9372e8 87.5%, #a56ce1 100%);
     color: #f7f7f7;
@@ -102,15 +71,6 @@ PropertyCard.Conteiner = styled.div`
     font-size: 0.8rem;
     padding-bottom: 5px;
   }
-  .aluguel {
-    position: absolute;
-    top: 255px;
-    right: 10px;
-    padding: 5px 10px;
-    background-color: #fff;
-    border-radius: 7px;
-    font-weight: bold;
-  }
 `;
 
 PropertyCard.Info = styled.div`
@@ -121,6 +81,7 @@ PropertyCard.Info = styled.div`
   padding: 15px;
   gap: 10px 10px;
   text-align: start;
+  position: relative;
   p {
     font-size: 0.85rem;
   }
@@ -131,4 +92,28 @@ PropertyCard.Info = styled.div`
     height: 25px;
     width: 25px;
   }
+  .aluguel {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #fff;
+    border-radius: 7px;
+    font-weight: bold;
+  }
+`;
+
+PropertyCard.Button = styled.button`
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+	background-color: #44c767;
+	border-radius: 7px;
+	border: 1px solid #18ab29;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 17px;
+	padding: 10px 20px;
+	text-shadow: 0px 1px 0px #2f6627;
 `;

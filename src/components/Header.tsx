@@ -19,7 +19,7 @@ export const Header = () => {
 
 Header.conteiner = styled.div`
   background-image: linear-gradient(110deg, #008dfe 0, #0089fd 16.67%, #1086fc 33.33%, #4682f9 50%, #627ef6 66.67%, #777af1 83.33%, #8875ec 100%);
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 `;
 
 Header.menu = styled.header`
