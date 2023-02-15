@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { PropertyCard } from './components/PropertyCard';
+import Apartamento1 from './images/deborah-cortelazzi-gREquCUXQLI-unsplash.jpg';
+import React from 'react';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <PropertyCard propertyType='Apartamento Residencial' urlImage={Apartamento1} aluguel={1250} cidadeEstado='Caxias do Sul/RS' bairro={'Panazzolo'} m2={72} dormitorio={2} banheiro={2} vagas={2} condominio={250} IPTU={750}>
+        <img src="" alt="" />
+      </PropertyCard>
+      <Footer />
     </div>
   );
 }
