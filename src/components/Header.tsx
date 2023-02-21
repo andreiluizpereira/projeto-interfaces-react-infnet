@@ -1,43 +1,57 @@
 import React from "react";
+import Logo from '../images/Logo.svg';
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
 
   return (
-    <Header.conteiner>
-      <Header.menu>
-        <h1>Imobiliária Infnet</h1>
-        <Header.links>
-          <li><a href="">Alugue um imóvel</a></li>
-          <li><a href="">Ofereça seu imóvel</a></li>
-          <li><a href="">Contato</a></li>
-        </Header.links>
-      </Header.menu>
-    </Header.conteiner>
+    <Header.container>
+      <img src={Logo} alt="" />
+      <Header.navegacao>
+        <ul>
+          <li><a href="#contato" className="link">Contato</a></li>
+          <li><Header.Link to="/imobiliaria infnet/anunciar imovel" className="link">Anunciar</Header.Link></li>
+          <li><Header.Link to="/imobiliaria infnet/alugar imovel" className="alugar">Alugar</Header.Link></li>
+        </ul>
+      </Header.navegacao>
+    </Header.container>
   );
 }
 
-Header.conteiner = styled.div`
-  background-image: linear-gradient(110deg, #008dfe 0, #0089fd 16.67%, #1086fc 33.33%, #4682f9 50%, #627ef6 66.67%, #777af1 83.33%, #8875ec 100%);
-  margin-bottom: 40px;
-`;
-
-Header.menu = styled.header`
-  max-width: 1000px;
+Header.container = styled.header`
+  max-width: 1280px;
   margin: auto;
+  padding: 20px 0px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
 `;
 
-Header.links = styled.ul`
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  gap: 30px;
-  font-weight: bold;
-  a {
-    color: #fff;
+Header.navegacao = styled.nav`
+  ul {
+    display: flex;
+    align-items: center;
+    
+    gap: 90px;
+    font-weight: 500;
+    font-size: 1.5rem;
   }
+  .link:hover {
+    border-bottom: 3px solid #4F46E5;
+  }
+  .alugar {
+    color: #fff;
+    background-color: #4F46E5;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: .5s;
+  }
+  .alugar:hover {
+    opacity: .8;
+  }
+`;
+
+Header.Link = styled(Link)`
+  color: #4F46E5;
 `;

@@ -1,21 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-import DefaultLayout from "../layout/DefaultLayout";
-import OfferYourProperty from "../pages/OfferYourProperty";
-import RentProperty from "../pages/RentProperty";
+import LayoutPadrao from "../layout/LayoutPadrao";
+import Alugar from "../pages/Alugar";
+import Anunciar from "../pages/Anunciar";
 
 const router = createBrowserRouter([
   {
-    element: <DefaultLayout />,
+    element: <LayoutPadrao />,
     path: 'imobiliaria infnet',
     children: [
       {
-        element: <RentProperty />,
-        path: 'alugue um imóvel'
+        element: <Alugar />,
+        path: 'alugar imovel'
       },
       {
-        element: <OfferYourProperty />,
-        path: 'ofereça um imóvel'
-      }
+        element: <Anunciar />,
+        path: 'anunciar imovel'
+      },
     ]
   }
 ])
