@@ -11,8 +11,16 @@ export const Header = () => {
       <Header.navegacao>
         <ul>
           <li><a href="#contato" className="link">Contato</a></li>
-          <li><Header.Link to="/imobiliaria infnet/anunciar imovel" className="link">Anunciar</Header.Link></li>
-          <li><Header.Link to="/imobiliaria infnet/alugar imovel" className="alugar">Alugar</Header.Link></li>
+          <li>
+            <Header.Link to="/imobiliaria-infnet/anunciar-imovel" className="link">
+              Anunciar
+            </Header.Link>
+          </li>
+          <li>
+            <Header.Link to="/imobiliaria-infnet/alugar-imovel" className="alugar">
+              Alugar
+            </Header.Link>
+          </li>
         </ul>
       </Header.navegacao>
     </Header.container>

@@ -6,15 +6,15 @@ import Anunciar from "../pages/Anunciar";
 const router = createBrowserRouter([
   {
     element: <LayoutPadrao />,
-    path: 'imobiliaria infnet',
+    path: 'imobiliaria-infnet',
     children: [
       {
         element: <Alugar />,
-        path: 'alugar imovel'
+        path: 'alugar-imovel'
       },
       {
         element: <Anunciar />,
-        path: 'anunciar imovel'
+        path: 'anunciar-imovel'
       },
     ]
   }
