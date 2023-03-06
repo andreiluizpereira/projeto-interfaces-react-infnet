@@ -1,20 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
 import LayoutPadrao from "../layout/LayoutPadrao";
 import Alugar from "../pages/Alugar";
-import Anunciar from "../pages/Anunciar";
+import Anunciar from "../pages/FaleConosco";
 
 const router = createBrowserRouter([
   {
     element: <LayoutPadrao />,
-    path: 'imobiliaria-infnet',
+    path: '',
     children: [
       {
         element: <Alugar />,
-        path: 'alugar-imovel'
+        path: ''
       },
       {
         element: <Anunciar />,
-        path: 'anunciar-imovel'
+        path: 'fale-conosco'
       },
     ]
   }

@@ -3,20 +3,9 @@ import bed from '../../icons/bed.svg';
 import garage from '../../icons/garage.svg';
 import ruler from '../../icons/ruler.svg';
 import toilet from '../../icons/toilet.svg';
+import { FrontCardProps } from "../../types/PropertiesInfo";
 
-type FrontCardProps = {
-  urlImage: string;
-  aluguel: number;
-  cidadeEstado: string;
-  bairro: string;
-  dormitorio: number;
-  banheiro: number;
-  m2: number;
-  vagas: number;
-  areaPrivativa: number;
-}
 
-// FrontCard e BackCard precisam de contexto, para que  a page Alugar.tsx possa passar as props necessárias
 
 export const FrontCard = (props : FrontCardProps) => {
 
@@ -36,7 +25,7 @@ export const FrontCard = (props : FrontCardProps) => {
           <img src={toilet}/>
           <p>{props.banheiro} banheiros</p>
           <img src={ruler}/>
-          <p>{props.m2} m²</p>
+          <p>{props.areaPrivativa} m²</p>
           <img src={garage}/>
           <p>{props.vagas} vagas</p>
       </FrontCard.Info2>

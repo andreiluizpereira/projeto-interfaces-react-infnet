@@ -2,31 +2,47 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import Button from "../Button";
 import { FrontCard } from "./FrontCard";
-import Apartamento1 from '../../images/ap1.jpg';
-import Apartamento2 from '../../images/ap2.jpg';
-import Apartamento3 from '../../images/ap3.jpg';
-import Apartamento4 from '../../images/ap4.jpg';
-import Apartamento5 from '../../images/ap5.jpg';
-import Apartamento6 from '../../images/ap6.jpg';
 import { BackCard } from "./BackCard";
+import { Link } from "react-router-dom";
 
+type PropertyInfoProps = {
+  urlImage: string;
+  aluguel: number;
+  cidadeEstado: string;
+  bairro: string;
+  dormitorio: number;
+  banheiro: number;
+  vagas: number;
+  condominio: number;
+  iptu: number;
+  areaTotal: number;
+  areaPrivativa: number;
+  sobreImovel: string;
+}
 
-
-const CardContainer = () => {
+const CardContainer = (props: PropertyInfoProps) => {
   
-  const [buttonText, setButtonText] = useState("Detalhes");
+  const [details, setDetails] = useState(false);
   
   const handleClick = () => {
-    setButtonText("Tenho interesse");
+    setDetails(true);
   }
 
   return (
     <CardContainer.Container>
-      {buttonText === 'Detalhes' ? 
-        <FrontCard urlImage={Apartamento3} aluguel={1250} cidadeEstado='Caxias do Sul/RS' bairro={'Exposição'} m2={72} dormitorio={2} banheiro={2} vagas={2} areaPrivativa={116}/> 
+      {!details ? 
+        <FrontCard urlImage={props.urlImage} aluguel={props.aluguel} cidadeEstado={props.cidadeEstado} bairro={props.bairro} dormitorio={props.dormitorio} banheiro={props.banheiro} vagas={props.vagas} areaPrivativa={props.areaPrivativa}/> 
         : 
-        <BackCard aluguel={1250} condominio={250} iptu={800} areaTotal={128} areaPrivativa={116} sobreImovel="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." />}
-      <Button texto={buttonText} clickFunction={handleClick} />
+        <BackCard aluguel={props.aluguel} condominio={props.condominio} iptu={props.iptu} areaTotal={props.areaTotal} areaPrivativa={props.areaPrivativa} sobreImovel={props.sobreImovel} />
+      }
+      {!details ? 
+        <Button texto="Detalhes" clickFunction={handleClick} />
+      :
+        <Link to="/fale-conosco">
+          <Button texto="Tenho interesse" clickFunction={undefined} />
+        </Link>
+      }
+      
     </CardContainer.Container>
   );
 }
@@ -41,6 +57,7 @@ display: grid;
 Button {
   align-self: flex-end;
   margin: 25px 15px;
+  width: 320px;
 }
 `;
 

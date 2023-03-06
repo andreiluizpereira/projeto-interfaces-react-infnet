@@ -1,16 +1,5 @@
 import styled from "styled-components";
-import check from '../../icons/check.svg';
-
-// FrontCard e BackCard precisam de contexto, para que  a page Alugar.tsx possa passar as props necessárias
-
-type BackCardProps = {
-  aluguel: number;
-  condominio: number;
-  iptu: number;
-  areaTotal: number;
-  areaPrivativa: number;
-  sobreImovel: string;
-}
+import { BackCardProps } from "../../types/PropertiesInfo";
 
 export const BackCard = (props : BackCardProps) => {
   return (
@@ -19,26 +8,6 @@ export const BackCard = (props : BackCardProps) => {
       <p>Condomínio <span>R$ {props.condominio}</span></p>
       <p>IPTU <span>R$ {props.iptu}</span></p>
       <div className="detalhe"></div>
-      <div>
-        <img src={check} alt="" />
-        <p>Área total: {props.areaTotal}m²</p>
-      </div>
-      <div>
-        <img src={check} alt="" />
-        <p>Área privativa: {props.areaPrivativa}m²</p>
-      </div>
-      <div className="sacada">
-        <img src={check} alt="" />
-        <p>Sacada</p>
-      </div>
-      <div className="churrasqueira">
-        <img src={check} alt="" />
-        <p>Churrasqueira</p>
-      </div>
-      <div className="mobiliado">
-        <img src={check} alt="" />
-        <p>Mobiliado</p>
-      </div>
       <h3>Sobre o imóvel</h3>
       <p className="sobre-imovel">{props.sobreImovel}</p>
     </BackCard.Info>
@@ -48,6 +17,7 @@ export const BackCard = (props : BackCardProps) => {
 BackCard.Info = styled.div`
   gap: 10px;
   padding: 15px;
+  min-height: 398px;
   p {
     display: flex;
     justify-content: space-between;
@@ -93,4 +63,5 @@ BackCard.Info = styled.div`
     color: #777E8B;
     margin-top: 7px;
   }
+  
 `;

@@ -7,19 +7,19 @@ export const Header = () => {
 
   return (
     <Header.container>
-      <img src={Logo} alt="" />
+      <Link to=""><img src={Logo} alt="" /></Link>
       <Header.navegacao>
         <ul>
           <li><a href="#contato" className="link">Contato</a></li>
           <li>
-            <Header.Link to="/imobiliaria-infnet/anunciar-imovel" className="link">
-              Anunciar
-            </Header.Link>
+            <Link to="/fale-conosco" className="link">
+              Fale conosco
+            </Link>
           </li>
           <li>
-            <Header.Link to="/imobiliaria-infnet/alugar-imovel" className="alugar">
+            <Link to="" className="alugar">
               Alugar
-            </Header.Link>
+            </Link>
           </li>
         </ul>
       </Header.navegacao>
@@ -40,13 +40,15 @@ Header.navegacao = styled.nav`
   ul {
     display: flex;
     align-items: center;
-    
     gap: 90px;
     font-weight: 500;
     font-size: 1.5rem;
   }
   .link:hover {
     border-bottom: 3px solid #4F46E5;
+  }
+  .link:visited {
+    color: #4F46E5;
   }
   .alugar {
     color: #fff;
@@ -58,8 +60,4 @@ Header.navegacao = styled.nav`
   .alugar:hover {
     opacity: .8;
   }
-`;
-
-Header.Link = styled(Link)`
-  color: #4F46E5;
 `;
