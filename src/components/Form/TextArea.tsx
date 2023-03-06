@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
-export const TextArea = ({name}: TextAreaFieldProps) => {
+export const TextArea = ({name, value, onChangeFunction}: TextAreaFieldProps) => {
 
   return (
-    <TextArea.TextArea name={name} id={name}/>
+    <TextArea.TextArea name={name} id={name} value={value} onChange={onChangeFunction}/>
   );
 }
 
 type TextAreaFieldProps = {
   name: string;
+  value?: string | number;
+  onChangeFunction?: (event: any) => void;
 }
 
 TextArea.TextArea = styled.textarea`

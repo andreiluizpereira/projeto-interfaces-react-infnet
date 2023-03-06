@@ -10,16 +10,25 @@ const FaleConosco = () => {
 
   const [color, setColor] = useState("#f00");
   const [submited, setSubmited] = useState(false);
+  const [valid, setValid] = useState(false);
   const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
+  const [nascimento, setNascimento] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [mensagem, setMensagem] = useState("");
 
   const handleSubmit = (e : any) => {
     e.preventDefault();
     setSubmited(!submited);
-    if (nome === "" || sobrenome === "") {
-      setColor("#f00");
+    if (nome === "" || sobrenome === "" || nascimento === "" || email === "" || telefone === "" || mensagem === "") {
+      setColor("#b20201");
+      if (valid) {
+        setValid(false);
+      }
     } else {
-      setColor("#0f0");
+      setValid(true);
+      setColor("#488D04");
     }
   }
 
@@ -34,15 +43,15 @@ const FaleConosco = () => {
           <Label htmlFor='sobrenome'>Sobrenome</Label>
           <Input id='sobrenome' name='sobrenome' type='text' value={sobrenome} onChangeFunction={e => setSobrenome(e.target.value)} />
           <Label htmlFor='nascimento'>Nascimento</Label>
-          <Input id='nascimento' name='nascimento' type='date' />
+          <Input id='nascimento' name='nascimento' type='date' value={nascimento} onChangeFunction={e => setNascimento(e.target.value)} />
           <Label htmlFor='email'>E-mail</Label>
-          <Input id='email' name='email' type='email' />
-          <Label htmlFor='telefone'>Telefone</Label>
-          <Input id='telefone' name='telefone' type='tel' />
+          <Input id='email' name='email' type='email' value={email} onChangeFunction={e => setEmail(e.target.value)} />
+          <Label htmlFor='telefone' >Telefone</Label>
+          <Input id='telefone' name='telefone' type='tel' value={telefone} onChangeFunction={e => setTelefone(e.target.value)} />
           <Label htmlFor='mensagem'>Mensagem</Label>
-          <TextArea name='mensagem'></TextArea>
-          {((nome === "" || sobrenome === "") && submited) && <FaleConosco.Validacao style={{color: color}}>Preencha todos os campos!</FaleConosco.Validacao>}
-          {((nome !== "" && sobrenome !== "") && submited) && <FaleConosco.Validacao style={{color: color}}>Mensagem enviada com sucesso!</FaleConosco.Validacao>}          
+          <TextArea name='mensagem' value={mensagem} onChangeFunction={e => setMensagem(e.target.value)}></TextArea>
+          {(!valid && submited) && <FaleConosco.Validacao style={{color: color}}>Preencha todos os campos!</FaleConosco.Validacao>}
+          {(valid && !submited) && <FaleConosco.Validacao style={{color: color}}>Mensagem enviada com sucesso!</FaleConosco.Validacao>}          
           <Button texto='Enviar' type='submit' />
       </FaleConosco.Formulario>
     </>
