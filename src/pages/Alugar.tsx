@@ -7,7 +7,6 @@ import Apartamento4 from '../images/ap4.jpg';
 import Apartamento5 from '../images/ap5.jpg';
 import Apartamento6 from '../images/ap6.jpg';
 
-// uiseCOntext
 const Alugar = () => {
 
   return (

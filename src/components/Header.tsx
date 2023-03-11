@@ -10,17 +10,9 @@ export const Header = () => {
       <Link to=""><img src={Logo} alt="" /></Link>
       <Header.navegacao>
         <ul>
-          <li><a href="#contato" className="link">Contato</a></li>
-          <li>
-            <Link to="/fale-conosco" className="link">
-              Fale conosco
-            </Link>
-          </li>
-          <li>
-            <Link to="" className="alugar">
-              Alugar
-            </Link>
-          </li>
+          <li><Header.aHover href="#contato">Contato</Header.aHover></li>
+          <li><Header.linkHover to="/fale-conosco">Fale conosco</Header.linkHover></li>
+          <li><Header.linkDestaque to="">Alugar</Header.linkDestaque></li>
         </ul>
       </Header.navegacao>
     </Header.container>
@@ -36,6 +28,17 @@ Header.container = styled.header`
   align-items: center;
 `;
 
+Header.linkDestaque = styled(Link)`
+  color: #fff;
+  background-color: #4F46E5;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: .5s;
+  &:hover {
+    opacity: .8;
+  }
+`;
+
 Header.navegacao = styled.nav`
   ul {
     display: flex;
@@ -44,20 +47,25 @@ Header.navegacao = styled.nav`
     font-weight: 500;
     font-size: 1.5rem;
   }
-  .link:hover {
+`;
+
+Header.linkHover = styled(Link)`
+  &:hover {
     border-bottom: 3px solid #4F46E5;
   }
-  .link:visited {
+  &:visited {
     color: #4F46E5;
   }
-  .alugar {
-    color: #fff;
-    background-color: #4F46E5;
-    padding: 10px 20px;
-    border-radius: 10px;
-    transition: .5s;
+`;
+
+Header.aHover = styled.a`
+  &:hover {
+    border-bottom: 3px solid #4F46E5;
   }
-  .alugar:hover {
-    opacity: .8;
+  &:visited {
+    color: #4F46E5;
   }
 `;
+
+
+

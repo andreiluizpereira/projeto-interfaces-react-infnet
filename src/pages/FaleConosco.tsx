@@ -9,26 +9,29 @@ import { TextArea } from '../components/Form/TextArea';
 const FaleConosco = () => {
 
   const [color, setColor] = useState("#f00");
-  const [submited, setSubmited] = useState(false);
   const [valid, setValid] = useState(false);
+  const [submited, setSubmited] = useState(false);
   const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
   const [nascimento, setNascimento] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [mensagem, setMensagem] = useState("");
+  
 
   const handleSubmit = (e : any) => {
     e.preventDefault();
     setSubmited(!submited);
+
     if (nome === "" || sobrenome === "" || nascimento === "" || email === "" || telefone === "" || mensagem === "") {
+      setValid(false);
       setColor("#b20201");
-      if (valid) {
-        setValid(false);
-      }
-    } else {
+      setSubmited(true);
+    } 
+    else {
       setValid(true);
       setColor("#488D04");
+      setSubmited(true);
     }
   }
 
@@ -51,7 +54,7 @@ const FaleConosco = () => {
           <Label htmlFor='mensagem'>Mensagem</Label>
           <TextArea name='mensagem' value={mensagem} onChangeFunction={e => setMensagem(e.target.value)}></TextArea>
           {(!valid && submited) && <FaleConosco.Validacao style={{color: color}}>Preencha todos os campos!</FaleConosco.Validacao>}
-          {(valid && !submited) && <FaleConosco.Validacao style={{color: color}}>Mensagem enviada com sucesso!</FaleConosco.Validacao>}          
+          {(valid && submited) && <FaleConosco.Validacao style={{color: color}}>Mensagem enviada com sucesso!</FaleConosco.Validacao>}          
           <Button texto='Enviar' type='submit' />
       </FaleConosco.Formulario>
     </>

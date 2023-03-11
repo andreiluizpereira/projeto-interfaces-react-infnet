@@ -19,7 +19,7 @@ export const FrontCard = (props : FrontCardProps) => {
         </div>
       </FrontCard.Info1>
       <FrontCard.Info2> 
-          <span className='aluguel'>{props.aluguel}</span>
+          <FrontCard.Aluguel>{props.aluguel}</FrontCard.Aluguel>
           <img src={bed} alt="Foto imóvel" width={350} height={250} />
           <p>{props.dormitorio} dormitórios</p>
           <img src={toilet}/>
@@ -64,18 +64,6 @@ FrontCard.Info2 = styled.div`
   gap: 20px 10px;
   text-align: start;
   position: relative;
-
-  .aluguel {
-    color: #fff;
-    background-color: #4F46E5;
-    font-size: 1.125rem;
-    border-radius: 12px;
-    padding: 7px 14px;
-    position: absolute;
-    top: -130px;
-    right: 10px;
-    font-weight: bold;
-  }
   img {
     height: 35px;
     width: 35px;
@@ -84,4 +72,16 @@ FrontCard.Info2 = styled.div`
     font-size: 0.9rem;
     color: #777E8B;
   }
+`;
+
+FrontCard.Aluguel = styled.span`
+  color: #fff;
+  background-color: #4F46E5;
+  font-size: 1.125rem;
+  border-radius: 12px;
+  padding: 7px 14px;
+  position: absolute;
+  top: -130px;
+  right: 10px;
+  font-weight: bold;
 `;

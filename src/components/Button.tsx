@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const Button = ({clickFunction, submitFunction, texto, type='submit'}: ButtonProps) => {
   return (
-    <Button.button className="hover" value={texto} type={type} onClick={clickFunction} onSubmit={submitFunction}>{texto}</Button.button> 
+    <Button.button value={texto} type={type} onClick={clickFunction} onSubmit={submitFunction}>{texto}</Button.button> 
   );
 }
 

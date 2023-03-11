@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import telefone from "../icons/telefone.svg";
 import whatsapp from "../icons/whatsapp.svg";
@@ -13,37 +12,37 @@ export const Footer = () => {
   return (
     <Footer.container>
       <Footer.container_interno id="contato">
-        <div className="contato">
+        <Footer.contato>
           <h3>Contato</h3>
-          <div className="informacoes">
+          <Footer.informacoes>
             <img src={telefone}/>
             <p>(54) 99999-9999</p>
             <img src={whatsapp}/>
             <p>(54) 98888-8888</p>
             <img src={email}/>
             <a href="mailto:imobiliariainfnet@gmail.com">imobiliariainfnet@gmail.com</a>
-          </div>
-        </div>
+          </Footer.informacoes>
+        </Footer.contato>
         <div>
           <h3>Localização</h3>
-          <div className="informacoes">
+          <Footer.informacoes>
             <img src={localizacao}/>
             <p>Rua ABC, 555, Centro - Caxias do Sul/RS</p>
-          </div>
+          </Footer.informacoes>
         </div>
         <div>
           <h3>Horários</h3>
-          <div className="informacoes">
+          <Footer.informacoes>
             <img src={relogio}/>
             <p>De segunda a sexta-feira <br /> Das 08:30 às 12:00 e das 13:30 às 18:00</p>
-          </div>
+          </Footer.informacoes>
         </div>
-        <p className="direitos">© Imobiliária Infnet. Todos os direitos reservados.</p>
-        <div className="redes-sociais">
+        <Footer.direitos>© Imobiliária Infnet. Todos os direitos reservados.</Footer.direitos>
+        <Footer.redesSociais>
           <img src={facebook}/>
           <img src={instagram}/>
           <img src={youtube}/>
-        </div>
+        </Footer.redesSociais>
       </Footer.container_interno>
     </Footer.container>
   );
@@ -75,31 +74,32 @@ Footer.container_interno = styled.footer`
     color: inherit;
     font-weight: 400;
   }
-  .contato {
-    grid-row: 1/3;
-  }
-  .informacoes {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-  }
-  .direitos {
-    margin-top: 80px;
-    align-self: center;
-  }
-  .redes-sociais {
-    margin-top: 80px;
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    transition: .5s;
-  }
-  .redes-sociais img {
-    color: #2925D9
-  }
-  .redes-sociais img:hover {
+`;
+
+Footer.informacoes = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+`;
+
+Footer.contato = styled.div`
+  grid-row: 1/3;
+`;
+
+Footer.direitos = styled.p`
+  margin-top: 80px;
+  align-self: center;
+`;
+
+Footer.redesSociais = styled.div`
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  transition: .5s;
+  img:hover {
     opacity: .8;
     cursor: pointer;
   }
