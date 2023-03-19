@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
-import { Input } from '../components/Form/Input';
+import Input from '../components/Form/Input';
+import TextArea from '../components/Form/TextArea';
 import { Label } from '../components/Form/Label';
-import { TextArea } from '../components/Form/TextArea';
-
 
 const FaleConosco = () => {
 
@@ -17,10 +16,9 @@ const FaleConosco = () => {
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [mensagem, setMensagem] = useState("");
-  
 
-  const handleSubmit = (e : any) => {
-    e.preventDefault();
+  const handleSubmit = (event : any) => {
+    event.preventDefault();
     setSubmited(!submited);
 
     if (nome === "" || sobrenome === "" || nascimento === "" || email === "" || telefone === "" || mensagem === "") {
@@ -42,20 +40,32 @@ const FaleConosco = () => {
       </FaleConosco.Titulo>
       <FaleConosco.Formulario onSubmit={handleSubmit}>
           <Label htmlFor='nome'>Nome</Label>
-          <Input id='nome' name='nome' type='text' value={nome} onChangeFunction={e => setNome(e.target.value)} />
+          <Input id='nome' name='nome' type='text' value={nome} 
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setNome(event.target.value)} />
+          
           <Label htmlFor='sobrenome'>Sobrenome</Label>
-          <Input id='sobrenome' name='sobrenome' type='text' value={sobrenome} onChangeFunction={e => setSobrenome(e.target.value)} />
+          <Input id='sobrenome' name='sobrenome' type='text' value={sobrenome} 
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSobrenome(event.target.value)} />
+          
           <Label htmlFor='nascimento'>Nascimento</Label>
-          <Input id='nascimento' name='nascimento' type='date' value={nascimento} onChangeFunction={e => setNascimento(e.target.value)} />
+          <Input id='nascimento' name='nascimento' type='date' value={nascimento} 
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setNascimento(event.target.value)} />
+          
           <Label htmlFor='email'>E-mail</Label>
-          <Input id='email' name='email' type='email' value={email} onChangeFunction={e => setEmail(e.target.value)} />
+          <Input id='email' name='email' type='email' value={email} 
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)} />
+          
           <Label htmlFor='telefone' >Telefone</Label>
-          <Input id='telefone' name='telefone' type='tel' value={telefone} onChangeFunction={e => setTelefone(e.target.value)} />
+          <Input id='telefone' name='telefone' type='tel' value={telefone} 
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setTelefone(event.target.value)} />
+          
           <Label htmlFor='mensagem'>Mensagem</Label>
-          <TextArea name='mensagem' value={mensagem} onChangeFunction={e => setMensagem(e.target.value)}></TextArea>
+          <TextArea name='mensagem' value={mensagem} 
+            onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setMensagem(event.target.value)}></TextArea>
           {(!valid && submited) && <FaleConosco.Validacao style={{color: color}}>Preencha todos os campos!</FaleConosco.Validacao>}
           {(valid && submited) && <FaleConosco.Validacao style={{color: color}}>Mensagem enviada com sucesso!</FaleConosco.Validacao>}          
-          <Button texto='Enviar' type='submit' />
+          
+          <Button type='submit'>Enviar</Button>
       </FaleConosco.Formulario>
     </>
   );

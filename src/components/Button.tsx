@@ -1,19 +1,6 @@
 import styled from "@emotion/styled";
 
-const Button = ({clickFunction, submitFunction, texto, type='submit'}: ButtonProps) => {
-  return (
-    <Button.button value={texto} type={type} onClick={clickFunction} onSubmit={submitFunction}>{texto}</Button.button> 
-  );
-}
-
-type ButtonProps = {
-  clickFunction?: () => void | undefined; 
-  submitFunction?: (e: any) => void | undefined;
-  texto: string;
-  type?: "submit" | "button" | "reset" | undefined;
-}
-
-Button.button = styled.button`
+export default styled.button`
   background: linear-gradient(90deg, #4F46E5 1.36%, #4686E5 73.48%);
   border: none;
   border-radius: 12px;
@@ -31,5 +18,3 @@ Button.button = styled.button`
     cursor: pointer;
   }
 `; 
-
-export default Button;

@@ -36,10 +36,10 @@ const CardContainer = (props: PropertyInfoProps) => {
         <BackCard aluguel={props.aluguel} condominio={props.condominio} iptu={props.iptu} areaTotal={props.areaTotal} areaPrivativa={props.areaPrivativa} sobreImovel={props.sobreImovel} />
       }
       {!details ? 
-        <Button texto="Detalhes" clickFunction={handleClick} />
+        <Button onClick={handleClick}>Detalhes</Button>
       :
         <Link to="/fale-conosco">
-          <Button texto="Tenho interesse" clickFunction={undefined} />
+          <Button>Tenho interesse</Button>
         </Link>
       }
       
