@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import CardContainer from '../components/Card/CardContainer';
-import Apartamento1 from '../images/ap1.jpg';
-import Apartamento2 from '../images/ap2.jpg';
-import Apartamento3 from '../images/ap3.jpg';
-import Apartamento4 from '../images/ap4.jpg';
-import Apartamento5 from '../images/ap5.jpg';
-import Apartamento6 from '../images/ap6.jpg';
+import CardContainer from '../../components/Card/CardContainer';
+import Apartamento1 from '../../images/ap1.jpg';
+import Apartamento2 from '../../images/ap2.jpg';
+import Apartamento3 from '../../images/ap3.jpg';
+import Apartamento4 from '../../images/ap4.jpg';
+import Apartamento5 from '../../images/ap5.jpg';
+import Apartamento6 from '../../images/ap6.jpg';
 
 const Alugar = () => {
 

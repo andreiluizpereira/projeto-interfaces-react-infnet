@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Button from '../components/Button';
-import Input from '../components/Form/Input';
-import TextArea from '../components/Form/TextArea';
-import { Label } from '../components/Form/Label';
+import Button from '../../components/Shared/Button';
+import Input from '../../components/Form/Input';
+import TextArea from '../../components/Form/TextArea';
+import { Label } from '../../components/Form/Label';
 
 const FaleConosco = () => {
 

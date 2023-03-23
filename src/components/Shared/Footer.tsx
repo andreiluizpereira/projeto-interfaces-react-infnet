@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import telefone from "../icons/telefone.svg";
-import whatsapp from "../icons/whatsapp.svg";
-import email from "../icons/email.svg";
-import localizacao from "../icons/localizacao.svg";
-import relogio from "../icons/relogio.svg";
-import facebook from "../icons/facebook.svg";
-import instagram from "../icons/instagram.svg";
-import youtube from "../icons/youtube.svg";
+import telefone from "../../icons/telefone.svg";
+import whatsapp from "../../icons/whatsapp.svg";
+import email from "../../icons/email.svg";
+import localizacao from "../../icons/localizacao.svg";
+import relogio from "../../icons/relogio.svg";
+import facebook from "../../icons/facebook.svg";
+import instagram from "../../icons/instagram.svg";
+import youtube from "../../icons/youtube.svg";
 
 export const Footer = () => {
   return (

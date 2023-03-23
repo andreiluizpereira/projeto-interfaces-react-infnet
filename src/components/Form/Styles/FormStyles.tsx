@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 export const formStyles = `
   padding: 5px 10px;
   opacity: 0.6;

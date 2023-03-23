@@ -1,23 +1,52 @@
 import { createBrowserRouter } from "react-router-dom";
-import LayoutPadrao from "../layout/LayoutPadrao";
-import Alugar from "../pages/Alugar";
-import Anunciar from "../pages/FaleConosco";
+import PrivateRouter from "../pages/Compartilhado/PrivateRouter";
+import Home from "../layout/Home";
+import Alugar from "../pages/Home/Alugar";
+import FaleConosco from "../pages/Home/FaleConosco";
+import Acesso from "../layout/Acesso";
+import Entrar from "../pages/Acesso/Entrar";
+import CriarConta from "../pages/Acesso/CriarConta";
+import RecuperarSenha from "../pages/Acesso/RecuperarSenha";
 
 const router = createBrowserRouter([
   {
-    element: <LayoutPadrao />,
+    element: <PrivateRouter />,
     path: '',
     children: [
       {
-        element: <Alugar />,
-        path: ''
+        element: <Home />,
+        path: '',
+        children: [
+          {
+            element: <Alugar />,
+            path: ''
+          },
+          {
+            element: <FaleConosco />,
+            path: 'fale-conosco'
+          },
+        ]
+      }
+    ]
+  },
+  {
+    element: <Acesso />,
+    path: 'usuario',
+    children: [
+      {
+        element: <Entrar />,
+        path: 'entrar'
       },
       {
-        element: <Anunciar />,
-        path: 'fale-conosco'
+        element: <CriarConta />,
+        path: 'criar-conta'
       },
+      {
+        element: <RecuperarSenha />,
+        path: 'recuperar-senha'
+      }
     ]
   }
 ])
 
-export default router
+export default router;

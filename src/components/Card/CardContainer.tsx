@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import Button from "../Button";
+import Button from "../Shared/Button";
 import { FrontCard } from "./FrontCard";
 import { BackCard } from "./BackCard";
 import { Link } from "react-router-dom";
@@ -38,7 +38,7 @@ const CardContainer = (props: PropertyInfoProps) => {
       {!details ? 
         <Button onClick={handleClick}>Detalhes</Button>
       :
-        <Link to="/fale-conosco">
+        <Link to="/usuario/entrar">
           <Button>Tenho interesse</Button>
         </Link>
       }
