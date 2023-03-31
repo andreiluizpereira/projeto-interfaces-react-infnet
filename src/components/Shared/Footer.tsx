@@ -13,35 +13,35 @@ export const Footer = () => {
     <Footer.container>
       <Footer.container_interno id="contato">
         <Footer.contato>
-          <h3>Contato</h3>
+          <Footer.Titulos>Contato</Footer.Titulos>
           <Footer.informacoes>
-            <img src={telefone}/>
-            <p>(54) 99999-9999</p>
-            <img src={whatsapp}/>
-            <p>(54) 98888-8888</p>
-            <img src={email}/>
-            <a href="mailto:imobiliariainfnet@gmail.com">imobiliariainfnet@gmail.com</a>
+            <Footer.Icon src={telefone}/>
+            <Footer.Text>(54) 99999-9999</Footer.Text>
+            <Footer.Icon src={whatsapp}/>
+            <Footer.Text>(54) 98888-8888</Footer.Text>
+            <Footer.Icon src={email}/>
+            <Footer.Text>imobiliariainfnet@gmail.com</Footer.Text>
           </Footer.informacoes>
         </Footer.contato>
         <div>
-          <h3>Localização</h3>
+          <Footer.Titulos>Localização</Footer.Titulos>
           <Footer.informacoes>
-            <img src={localizacao}/>
-            <p>Rua ABC, 555, Centro - Caxias do Sul/RS</p>
+            <Footer.Icon src={localizacao}/>
+            <Footer.Text>Rua ABC, 555, Centro - Caxias do Sul/RS</Footer.Text>
           </Footer.informacoes>
         </div>
         <div>
-          <h3>Horários</h3>
+          <Footer.Titulos>Horários</Footer.Titulos>
           <Footer.informacoes>
-            <img src={relogio}/>
-            <p>De segunda a sexta-feira <br /> Das 08:30 às 12:00 e das 13:30 às 18:00</p>
+            <Footer.Icon src={relogio}/>
+            <Footer.Text>De segunda a sexta-feira <br /> Das 08:30 às 12:00 e das 13:30 às 18:00</Footer.Text>
           </Footer.informacoes>
         </div>
         <Footer.direitos>© Imobiliária Infnet. Todos os direitos reservados.</Footer.direitos>
         <Footer.redesSociais>
-          <img src={facebook}/>
-          <img src={instagram}/>
-          <img src={youtube}/>
+          <Footer.Icon src={facebook}/>
+          <Footer.Icon src={instagram}/>
+          <Footer.Icon src={youtube}/>
         </Footer.redesSociais>
       </Footer.container_interno>
     </Footer.container>
@@ -60,20 +60,16 @@ Footer.container_interno = styled.footer`
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 30px 0px;
-  img {
-    width: 40px;
-    height: 40px;
-  }
-  h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1F15C7;
-  }
-  a, p {
-    font-size: 1.1rem;
-    color: inherit;
-    font-weight: 400;
-  }
+`;
+
+Footer.contato = styled.div`
+  grid-row: 1/3;
+`;
+
+Footer.Titulos = styled.h3`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1F15C7;
 `;
 
 Footer.informacoes = styled.div`
@@ -84,8 +80,15 @@ Footer.informacoes = styled.div`
   margin-top: 15px;
 `;
 
-Footer.contato = styled.div`
-  grid-row: 1/3;
+Footer.Icon = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+
+Footer.Text = styled.p`
+  font-size: 1.1rem;
+  color: inherit;
+  font-weight: 400;
 `;
 
 Footer.direitos = styled.p`

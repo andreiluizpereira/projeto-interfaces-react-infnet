@@ -6,6 +6,8 @@ import Apartamento3 from '../../images/ap3.jpg';
 import Apartamento4 from '../../images/ap4.jpg';
 import Apartamento5 from '../../images/ap5.jpg';
 import Apartamento6 from '../../images/ap6.jpg';
+import { FrontCardProps } from "../../types/PropertiesInfo";
+import { BackCardProps } from "../../types/PropertiesInfo";
 
 const Alugar = () => {
 
@@ -15,6 +17,7 @@ const Alugar = () => {
         <span>Alugue</span> um imóvel.
       </Alugar.Titulo>
       <Alugar.Layout>
+
         <CardContainer aluguel={1250} areaPrivativa={86} areaTotal={102} bairro="Panazzolo" cidadeEstado='Caxias do Sul/RS' banheiro={2} condominio={250} iptu={850} dormitorio={3} urlImage={Apartamento1} sobreImovel="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." vagas={2} />
         
         <CardContainer aluguel={1300} areaPrivativa={96} areaTotal={112} bairro="Cristo Redentor" cidadeEstado='Caxias do Sul/RS' banheiro={2} condominio={320} iptu={900} dormitorio={3} urlImage={Apartamento2} sobreImovel="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." vagas={2} />

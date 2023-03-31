@@ -5,56 +5,52 @@ import ruler from '../../icons/ruler.svg';
 import toilet from '../../icons/toilet.svg';
 import { FrontCardProps } from "../../types/PropertiesInfo";
 
-
-
 export const FrontCard = (props : FrontCardProps) => {
 
   return (
     <>
-      <FrontCard.Info1>
-        <div>
-          <img src={props.urlImage} alt="" />
-          <h2>{props.bairro} - {props.cidadeEstado}</h2>
-          <hr />
-        </div>
-      </FrontCard.Info1>
-      <FrontCard.Info2> 
+      <div>
+        <FrontCard.Imagem src={props.urlImage} />
+        <FrontCard.Titulo>{props.bairro} - {props.cidadeEstado}</FrontCard.Titulo>
+        <FrontCard.Linha />
+      </div>
+      <FrontCard.Info> 
           <FrontCard.Aluguel>{props.aluguel}</FrontCard.Aluguel>
-          <img src={bed} alt="Foto imóvel" width={350} height={250} />
-          <p>{props.dormitorio} dormitórios</p>
-          <img src={toilet}/>
-          <p>{props.banheiro} banheiros</p>
-          <img src={ruler}/>
-          <p>{props.areaPrivativa} m²</p>
-          <img src={garage}/>
-          <p>{props.vagas} vagas</p>
-      </FrontCard.Info2>
+          <FrontCard.Icon src={bed} width={350} height={250} />
+          <FrontCard.RoomsInfo>{props.dormitorio} dormitórios</FrontCard.RoomsInfo>
+          <FrontCard.Icon src={toilet}/>
+          <FrontCard.RoomsInfo>{props.banheiro} banheiros</FrontCard.RoomsInfo>
+          <FrontCard.Icon src={ruler}/>
+          <FrontCard.RoomsInfo>{props.areaPrivativa} m²</FrontCard.RoomsInfo>
+          <FrontCard.Icon src={garage}/>
+          <FrontCard.RoomsInfo>{props.vagas} vagas</FrontCard.RoomsInfo>
+      </FrontCard.Info>
     </>
   );
 } 
 
-FrontCard.Info1 = styled.div`
-  h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #4E5463;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    word-wrap: break-word;
-  }
-  hr {
-    width: 294px;
-    border: 1px solid rgba(119, 126, 139, 0.2);
-    padding: 0px;
-  }
-  img {
-    width: 350px;
-    height: 250px;
-    border-radius: 12px 12px 0px 0px;
-  } 
+FrontCard.Imagem = styled.img`
+  width: 350px;
+  height: 250px;
+  border-radius: 12px 12px 0px 0px;
 `;
 
-FrontCard.Info2 = styled.div`
+FrontCard.Titulo = styled.h2`
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4E5463;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+`;
+
+FrontCard.Linha = styled.hr`
+  margin: 0 15px;
+  border: 1px solid rgba(119, 126, 139, 0.2);
+  padding: 0px;
+`;
+
+FrontCard.Info = styled.div`
   border-radius: 0px 0px 12px 12px;
   display: grid;
   grid-template-columns: auto 1fr auto 1fr;
@@ -64,14 +60,16 @@ FrontCard.Info2 = styled.div`
   gap: 20px 10px;
   text-align: start;
   position: relative;
-  img {
-    height: 35px;
-    width: 35px;
-  }
-  p {
-    font-size: 0.9rem;
-    color: #777E8B;
-  }
+`;
+
+FrontCard.Icon = styled.img`
+  height: 35px;
+  width: 35px;
+`;
+
+FrontCard.RoomsInfo = styled.p`
+  font-size: 0.9rem;
+  color: #777E8B;
 `;
 
 FrontCard.Aluguel = styled.span`
@@ -81,7 +79,7 @@ FrontCard.Aluguel = styled.span`
   border-radius: 12px;
   padding: 7px 14px;
   position: absolute;
-  top: -130px;
+  top: -115px;
   right: 10px;
   font-weight: bold;
 `;

@@ -6,8 +6,6 @@ import { Links } from "../../components/Acesso/Links";
 import { useState } from "react";
 
 const Entrar = () => {
-  const [email, setEmail] = useState<string>("");
-
   return (
     <>
       <Label>E-mail</Label>
