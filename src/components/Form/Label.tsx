@@ -1,18 +1,6 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 
-export const Label = ({htmlFor, children}: LabelProps) => {
-  return (
-    <Label.label htmlFor={htmlFor}>{children}</Label.label>
-  );
-}
-
-type LabelProps = {
-  htmlFor: string;
-  children: ReactNode;
-}
-
-Label.label = styled.label`
+const Label = styled.label`
   font-style: normal;
   font-weight: 500;
   font-size: 1.3rem;
@@ -20,3 +8,5 @@ Label.label = styled.label`
   letter-spacing: 0.095em;
   color: #6A717E;
 `;
+
+export default Label;

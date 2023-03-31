@@ -38,7 +38,7 @@ const CardContainer = (props: PropertyInfoProps) => {
       {!details ? 
         <Button onClick={handleClick}>Detalhes</Button>
       :
-        <Link to="/usuario/entrar">
+        <Link to="/fale-conosco">
           <Button>Tenho interesse</Button>
         </Link>
       }

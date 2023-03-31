@@ -1,71 +1,65 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../components/Shared/Button';
 import Input from '../../components/Form/Input';
 import TextArea from '../../components/Form/TextArea';
-import { Label } from '../../components/Form/Label';
+import Label from '../../components/Form/Label';
+import { useForm } from "react-hook-form";
 
 const FaleConosco = () => {
 
-  const [color, setColor] = useState("#f00");
-  const [valid, setValid] = useState(false);
-  const [submited, setSubmited] = useState(false);
-  const [nome, setNome] = useState("");
-  const [sobrenome, setSobrenome] = useState("");
-  const [nascimento, setNascimento] = useState("");
-  const [email, setEmail] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [mensagem, setMensagem] = useState("");
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (event : any) => {
-    event.preventDefault();
-    setSubmited(!submited);
-
-    if (nome === "" || sobrenome === "" || nascimento === "" || email === "" || telefone === "" || mensagem === "") {
-      setValid(false);
-      setColor("#b20201");
-      setSubmited(true);
-    } 
-    else {
-      setValid(true);
-      setColor("#488D04");
-      setSubmited(true);
-    }
-  }
+  const onSubmit = (data: Object) => {
+    setIsSubmitted(true);
+  };
 
   return (
     <> 
-      <FaleConosco.Titulo>
-      Fale conosco<span>.</span>
-      </FaleConosco.Titulo>
-      <FaleConosco.Formulario onSubmit={handleSubmit}>
+      <FaleConosco.Titulo>Fale conosco<span>.</span></FaleConosco.Titulo>
+      {isSubmitted && (
+        <FaleConosco.Validacao color=" #008B00" textAlign="center" fontSize='2rem'>Mensagem enviada com sucesso!</FaleConosco.Validacao>
+      )}
+      <FaleConosco.Formulario onSubmit={handleSubmit(onSubmit)}>
+
+        <FaleConosco.Field>
           <Label htmlFor='nome'>Nome</Label>
-          <Input id='nome' name='nome' type='text' value={nome} 
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setNome(event.target.value)} />
-          
+          <Input id='nome' type='text' {...register('nome', { required: true })} />
+          {errors.nome && <FaleConosco.Validacao>Preencha o campo nome!</FaleConosco.Validacao>}
+        </FaleConosco.Field>
+
+        <FaleConosco.Field>
           <Label htmlFor='sobrenome'>Sobrenome</Label>
-          <Input id='sobrenome' name='sobrenome' type='text' value={sobrenome} 
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSobrenome(event.target.value)} />
-          
+          <Input id='sobrenome' type='text' {...register('sobrenome', { required: true })} />
+          {errors.sobrenome && <FaleConosco.Validacao>Preencha o campo sobrenome!</FaleConosco.Validacao>}
+        </FaleConosco.Field>
+
+        <FaleConosco.Field>
           <Label htmlFor='nascimento'>Nascimento</Label>
-          <Input id='nascimento' name='nascimento' type='date' value={nascimento} 
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setNascimento(event.target.value)} />
-          
+          <Input id='nascimento' type='date' {...register('nascimento', { required: true })} />
+          {errors.nascimento && <FaleConosco.Validacao>Preencha o campo data de nascimento!</FaleConosco.Validacao>}
+        </FaleConosco.Field>
+
+        <FaleConosco.Field>
           <Label htmlFor='email'>E-mail</Label>
-          <Input id='email' name='email' type='email' value={email} 
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)} />
-          
-          <Label htmlFor='telefone' >Telefone</Label>
-          <Input id='telefone' name='telefone' type='tel' value={telefone} 
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setTelefone(event.target.value)} />
-          
+          <Input id='email' type='email' placeholder='email@gmail.com' {...register('email', { required: true })} />
+          {errors.email && <FaleConosco.Validacao>Preencha o campo e-mail!</FaleConosco.Validacao>}
+        </FaleConosco.Field>
+
+        <FaleConosco.Field>
+          <Label htmlFor='telefone'>Telefone</Label>
+          <Input id='telefone' type='tel' pattern="[0-9]*" {...register('telefone', { required: true, pattern: /[0-9]*/ })} />
+          {errors.telefone?.type === 'required' && <FaleConosco.Validacao>Preencha o campo telefone e apenas com números!</FaleConosco.Validacao>}
+        </FaleConosco.Field>
+
+        <FaleConosco.Field>
           <Label htmlFor='mensagem'>Mensagem</Label>
-          <TextArea name='mensagem' value={mensagem} 
-            onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setMensagem(event.target.value)}></TextArea>
-          {(!valid && submited) && <FaleConosco.Validacao style={{color: color}}>Preencha todos os campos!</FaleConosco.Validacao>}
-          {(valid && submited) && <FaleConosco.Validacao style={{color: color}}>Mensagem enviada com sucesso!</FaleConosco.Validacao>}          
-          
-          <Button type='submit'>Enviar</Button>
+          <TextArea {...register('mensagem', { required: true })}></TextArea>
+          {errors.mensagem && <FaleConosco.Validacao>Preencha o campo mensagem!</FaleConosco.Validacao>}
+        </FaleConosco.Field>
+        
+        <Button type='submit'>Enviar</Button>
       </FaleConosco.Formulario>
     </>
   );
@@ -87,25 +81,30 @@ FaleConosco.Titulo = styled.h2`
 `;
 
 FaleConosco.Formulario = styled.form`
-  background-color: transparent;
-  border: none;
   max-width: 800px;
   margin: auto;
   display: grid;
-  gap: 5px;
+  gap: 25px;
   border-radius: 7px;
   padding: 20px;
   margin-bottom: 100px;
-  input {
-    margin-bottom: 25px;
-  }
 `;
 
-FaleConosco.Validacao = styled.p`
-  color: ${(props) => props.color};
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 20px;
+FaleConosco.Field = styled.div`
+  display: grid;
+  gap: 5px;
+`;
+
+type ValidacaoProps = {
+  color?: string;
+  textAlign?: string;
+  fontSize?: string;
+}
+
+FaleConosco.Validacao = styled.p<ValidacaoProps>`
+  color: ${props => props.color || '#b20201'};
+  text-align: ${props => props.textAlign || 'left'};
+  font-size: ${props => props.fontSize || '1rem'};
 `;
 
 export default FaleConosco;
