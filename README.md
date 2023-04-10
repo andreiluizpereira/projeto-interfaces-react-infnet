@@ -1,10 +1,10 @@
 # Projeto React
 Projeto desenvolvido como trabalho final da disciplina:
 
-**Instituição:** Instituto Infnet
-**Curso:** Desenvolvimento Web Full Stack
-**Disciplina:** Front End com React
-**Professor:** Alexandre Werneck Andreza
-**Aluno:** Andrei Luiz Pereira
+**Instituição:** Instituto Infnet <br/>
+**Curso:** Desenvolvimento Web Full Stack <br/>
+**Disciplina:** Front End com React <br/>
+**Professor:** Alexandre Werneck Andreza <br/>
+**Aluno:** Andrei Luiz Pereira <br/>
 
 
