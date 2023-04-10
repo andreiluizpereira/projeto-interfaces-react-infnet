@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../layout/Home";
+import SharedLayout from "../layout/SharedLayout";
 import Alugar from "../pages/Alugar";
 import FaleConosco from "../pages/FaleConosco";
 
 const router = createBrowserRouter([
   {
-    element: <Home />,
+    element: <SharedLayout />,
     path: '',
     children: [
     {     
