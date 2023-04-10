@@ -1,9 +1,9 @@
 import { ReactNode, useState } from 'react';
 import styled from 'styled-components';
-import Button from '../../components/Shared/Button';
-import Input from '../../components/Form/Input';
-import TextArea from '../../components/Form/TextArea';
-import Label from '../../components/Form/Label';
+import Button from '../components/Shared/Button';
+import Input from '../components/Form/Input';
+import TextArea from '../components/Form/TextArea';
+import Label from '../components/Form/Label';
 import { useForm } from "react-hook-form";
 
 const FaleConosco = () => {
@@ -55,7 +55,7 @@ const FaleConosco = () => {
 
         <FaleConosco.Field>
           <Label htmlFor='mensagem'>Mensagem</Label>
-          <TextArea {...register('mensagem', { required: true })}></TextArea>
+          <TextArea id='mensagem' {...register('mensagem', { required: true })}></TextArea>
           {errors.mensagem && <FaleConosco.Validacao>Preencha o campo mensagem!</FaleConosco.Validacao>}
         </FaleConosco.Field>
         

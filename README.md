@@ -1,14 +1,8 @@
 # Projeto React
-Este é um projeto React simples que pode ser executado em sua máquina local. Este README fornecerá as etapas necessárias para configurar e executar o projeto.
-
-## Pré-requisitos
-Para executar este projeto, é necessário ter instalado em sua máquina:
-
-- Node.js
-- npm
+Este é um projeto React desenvolvido para a disciplina **Front End com React** do curso **Desenvolvimento Web Full Stack**, do **Instituto Infnet**.
 
 ## Configuração
-Para começar, clone este repositório em sua máquina local. Em seguida, abra um terminal na pasta do projeto e execute o seguinte comando para instalar as dependências do projeto:
+Execute no terminal o seguinte comando para instalar as dependências do projeto:
 
 **`npm install`**
 

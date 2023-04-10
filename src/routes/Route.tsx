@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../layout/Home";
-import Alugar from "../pages/Home/Alugar";
-import FaleConosco from "../pages/Home/FaleConosco";
+import Alugar from "../pages/Alugar";
+import FaleConosco from "../pages/FaleConosco";
 
 const router = createBrowserRouter([
   {
